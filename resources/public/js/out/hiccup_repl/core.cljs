@@ -8,7 +8,8 @@
             [ajax.core :refer [GET POST]]
             [cljs.reader :as reader]
             [crate.core :as crate]
-            cljsjs.jquery)
+            cljsjs.jquery
+            [clojure.string :as str])
   (:import goog.History))
 
 (defn atom-textarea [model]
@@ -16,6 +17,7 @@
    [:textarea.form-control
     {:style {:font-family "monospace"
              :font-size "14px"
+
              :width "100%"
              :height "200px"
              :margin-left "10px"}
@@ -43,26 +45,37 @@
       [:div.row
        [:div.col-xs-4
         [:div.form-group
-         [:label "hiccup:"]
+
          [atom-textarea hic-string]]]
-       #_[:div.col-xs-4
-          [:label "read:"]
-          [:pre @hiccup-data]]
        [:div.col-xs-4
         [:div.form-group
-         [:label "live:"]
+
          [:div {:dangerously-set-inner-HTML
                 {:__html @hiccup-html}}]]]
        [:div.col-xs-4
         [:div.form-group
-         [:label "html:"]
+
          [:div [:pre {:style {:font-family "monowidth"}} @hiccup-html]]]]])))
 
 (defn home-component-content []
   [:div
+   [:h2 {:style {:margin-top "-60px"
+                 :margin-bottom "40px"
+                 :text-align :center}}
+    "hiccup.space"]
    [:div
     [example-component
-     "[:div [:span \"You're now using\" [:code \"Hiccup\"] \"!\"]]"]
+     "[:h1 \"Welcome to hiccup.space\"]"]
+    [example-component
+"[:p \"You can \"
+     [:code \"edit\"]
+     \"the boxes on the left.\"]"]
+    [example-component
+     "[:div
+[:p \"Try uncommenting the\"]
+[:pre \"<----[next line]-------\"]
+#_[:img {:src \"http://media.giphy.com/media/oLJ3zbbp4lX1u/giphy.gif\"}]
+]"]
     [example-component
      "[:table.table.table-hover
  [:thead

@@ -38,7 +38,7 @@ goog.addDependency("../reagent/core.js", ['reagent.core'], ['reagent.impl.util',
 goog.addDependency("../reagent/session.js", ['reagent.session'], ['reagent.core', 'cljs.core']);
 goog.addDependency("../clojure/walk.js", ['clojure.walk'], ['cljs.core']);
 goog.addDependency("../secretary/core.js", ['secretary.core'], ['cljs.core', 'clojure.string', 'clojure.walk']);
-goog.addDependency("../hiccup_repl/core.js", ['hiccup_repl.core'], ['ajax.core', 'cljsjs.jquery', 'markdown.core', 'crate.core', 'reagent.session', 'reagent.core', 'cljs.core', 'goog.history.EventType', 'goog.History', 'secretary.core', 'cljs.reader', 'goog.events']);
+goog.addDependency("../hiccup_repl/core.js", ['hiccup_repl.core'], ['ajax.core', 'cljsjs.jquery', 'markdown.core', 'crate.core', 'reagent.session', 'reagent.core', 'cljs.core', 'goog.history.EventType', 'goog.History', 'secretary.core', 'clojure.string', 'cljs.reader', 'goog.events']);
 goog.addDependency("../cljs/core/async/impl/protocols.js", ['cljs.core.async.impl.protocols'], ['cljs.core']);
 goog.addDependency("../cljs/core/async/impl/buffers.js", ['cljs.core.async.impl.buffers'], ['cljs.core', 'cljs.core.async.impl.protocols']);
 goog.addDependency("../cljs/core/async/impl/dispatch.js", ['cljs.core.async.impl.dispatch'], ['cljs.core', 'cljs.core.async.impl.buffers', 'goog.async.nextTick']);
