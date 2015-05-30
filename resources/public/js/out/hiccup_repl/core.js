@@ -1,9 +1,8 @@
-// Compiled by ClojureScript 0.0-3291 {}
+// Compiled by ClojureScript 0.0-3291 {:static-fns true, :optimize-constants true}
 goog.provide('hiccup_repl.core');
 goog.require('cljs.core');
 goog.require('reagent.core');
 goog.require('ajax.core');
-goog.require('cljsjs.jquery');
 goog.require('secretary.core');
 goog.require('markdown.core');
 goog.require('crate.core');
@@ -14,82 +13,110 @@ goog.require('goog.events');
 goog.require('clojure.string');
 goog.require('cljs.reader');
 hiccup_repl.core.atom_textarea = (function hiccup_repl$core$atom_textarea(model){
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"textarea.form-control","textarea.form-control",-1690362789),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"font-family","font-family",-667419874),"monospace",new cljs.core.Keyword(null,"font-size","font-size",-1847940346),"14px",new cljs.core.Keyword(null,"width","width",-384071477),"100%",new cljs.core.Keyword(null,"height","height",1025178622),"200px",new cljs.core.Keyword(null,"margin-left","margin-left",2015598377),"10px"], null),new cljs.core.Keyword(null,"value","value",305978217),cljs.core.deref.call(null,model),new cljs.core.Keyword(null,"on-blur","on-blur",814300747),(function (p1__38762_SHARP_){
-return console.log(p1__38762_SHARP_);
-}),new cljs.core.Keyword(null,"on-change","on-change",-732046149),(function (p1__38763_SHARP_){
-return cljs.core.reset_BANG_.call(null,model,p1__38763_SHARP_.target.value);
-})], null)], null)], null);
+var line_num = cljs.core.count(clojure.string.split_lines(clojure.string.replace((function (){var G__12391 = model;
+return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__12391) : cljs.core.deref.call(null,G__12391));
+})(),/#_/,"")));
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$div,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$textarea$form_DASH_control,new cljs.core.PersistentArrayMap(null, 4, [cljs.core.constant$keyword$style,new cljs.core.PersistentArrayMap(null, 5, [cljs.core.constant$keyword$font_DASH_family,"monospace",cljs.core.constant$keyword$font_DASH_size,"14px",cljs.core.constant$keyword$width,"100%",cljs.core.constant$keyword$height,[cljs.core.str(((20) * ((2) + line_num))),cljs.core.str("px")].join(''),cljs.core.constant$keyword$margin_DASH_left,"10px"], null),cljs.core.constant$keyword$value,(function (){var G__12392 = model;
+return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__12392) : cljs.core.deref.call(null,G__12392));
+})(),cljs.core.constant$keyword$on_DASH_blur,((function (line_num){
+return (function (p1__12385_SHARP_){
+return console.log(p1__12385_SHARP_);
+});})(line_num))
+,cljs.core.constant$keyword$on_DASH_change,((function (line_num){
+return (function (p1__12386_SHARP_){
+var G__12393 = model;
+var G__12394 = p1__12386_SHARP_.target.value;
+return (cljs.core.reset_BANG_.cljs$core$IFn$_invoke$arity$2 ? cljs.core.reset_BANG_.cljs$core$IFn$_invoke$arity$2(G__12393,G__12394) : cljs.core.reset_BANG_.call(null,G__12393,G__12394));
+});})(line_num))
+], null)], null)], null);
 });
 hiccup_repl.core.safe_read = (function hiccup_repl$core$safe_read(s,out){
-try{var data = cljs.reader.read_string.call(null,s);
-return cljs.core.reset_BANG_.call(null,out,data);
-}catch (e38765){var e = e38765;
+try{var data = cljs.reader.read_string(s);
+var G__12399 = out;
+var G__12400 = data;
+return (cljs.core.reset_BANG_.cljs$core$IFn$_invoke$arity$2 ? cljs.core.reset_BANG_.cljs$core$IFn$_invoke$arity$2(G__12399,G__12400) : cljs.core.reset_BANG_.call(null,G__12399,G__12400));
+}catch (e12398){var e = e12398;
 return "never mind";
 }});
 hiccup_repl.core.safe_parse = (function hiccup_repl$core$safe_parse(hiccup_data,out){
-try{var hiccup_html = reagent.core.render_to_static_markup.call(null,hiccup_data);
-return cljs.core.reset_BANG_.call(null,out,hiccup_html);
-}catch (e38767){var e = e38767;
-return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"ok","ok",967785236),false,new cljs.core.Keyword(null,"data","data",-232669377),e], null);
+try{var hiccup_html = reagent.core.render_to_static_markup(hiccup_data);
+var G__12405 = out;
+var G__12406 = hiccup_html;
+return (cljs.core.reset_BANG_.cljs$core$IFn$_invoke$arity$2 ? cljs.core.reset_BANG_.cljs$core$IFn$_invoke$arity$2(G__12405,G__12406) : cljs.core.reset_BANG_.call(null,G__12405,G__12406));
+}catch (e12404){var e = e12404;
+return new cljs.core.PersistentArrayMap(null, 2, [cljs.core.constant$keyword$ok,false,cljs.core.constant$keyword$data,e], null);
 }});
 hiccup_repl.core.example_component = (function hiccup_repl$core$example_component(starting_string){
-var hic_string = reagent.core.atom.call(null,starting_string);
-var hiccup_data = reagent.core.atom.call(null,"");
-var hiccup_html = reagent.core.atom.call(null,"");
+var hic_string = reagent.core.atom.cljs$core$IFn$_invoke$arity$1(starting_string);
+var hiccup_data = reagent.core.atom.cljs$core$IFn$_invoke$arity$1("");
+var hiccup_html = reagent.core.atom.cljs$core$IFn$_invoke$arity$1("");
 return ((function (hic_string,hiccup_data,hiccup_html){
 return (function (){
-var __38768 = hiccup_repl.core.safe_read.call(null,cljs.core.deref.call(null,hic_string),hiccup_data);
-var __38769__$1 = hiccup_repl.core.safe_parse.call(null,cljs.core.deref.call(null,hiccup_data),hiccup_html);
+var __12415 = hiccup_repl.core.safe_read((function (){var G__12411 = hic_string;
+return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__12411) : cljs.core.deref.call(null,G__12411));
+})(),hiccup_data);
+var __12416__$1 = hiccup_repl.core.safe_parse((function (){var G__12412 = hiccup_data;
+return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__12412) : cljs.core.deref.call(null,G__12412));
+})(),hiccup_html);
 
-return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.row","div.row",133678515),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.col-xs-6.col-md-4","div.col-xs-6.col-md-4",-581045487),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.form-group","div.form-group",-1721134770),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [hiccup_repl.core.atom_textarea,hic_string], null)], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.col-xs-6.col-md-4","div.col-xs-6.col-md-4",-581045487),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.form-group","div.form-group",-1721134770),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"dangerously-set-inner-HTML","dangerously-set-inner-HTML",-1133779743),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"__html","__html",674048345),cljs.core.deref.call(null,hiccup_html)], null)], null)], null)], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.col-md-4.hidden-sm.hidden-xs","div.col-md-4.hidden-sm.hidden-xs",1433992928),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.form-group","div.form-group",-1721134770),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"border","border",1444987323),"black 1px solid",new cljs.core.Keyword(null,"font-family","font-family",-667419874),"monowidth"], null)], null),cljs.core.deref.call(null,hiccup_html)], null)], null)], null)], null);
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$div$row,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$div$col_DASH_xs_DASH_6$col_DASH_md_DASH_4,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$div$form_DASH_group,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [hiccup_repl.core.atom_textarea,hic_string], null)], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$div$col_DASH_xs_DASH_6$col_DASH_md_DASH_4,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$div,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.constant$keyword$dangerously_DASH_set_DASH_inner_DASH_HTML,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.constant$keyword$__html,(function (){var G__12413 = hiccup_html;
+return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__12413) : cljs.core.deref.call(null,G__12413));
+})()], null)], null)], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$div$col_DASH_md_DASH_4$hidden_DASH_sm$hidden_DASH_xs,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$div$form_DASH_group,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$div,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.constant$keyword$style,new cljs.core.PersistentArrayMap(null, 2, [cljs.core.constant$keyword$border,"black 1px solid",cljs.core.constant$keyword$font_DASH_family,"monowidth"], null)], null),(function (){var G__12414 = hiccup_html;
+return (cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(G__12414) : cljs.core.deref.call(null,G__12414));
+})()], null)], null)], null)], null);
 });
 ;})(hic_string,hiccup_data,hiccup_html))
 });
 hiccup_repl.core.home_component = (function hiccup_repl$core$home_component(){
-return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h2","h2",-372662728),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"margin-top","margin-top",392161226),"-60px",new cljs.core.Keyword(null,"margin-bottom","margin-bottom",388334941),"40px",new cljs.core.Keyword(null,"text-align","text-align",1786091845),new cljs.core.Keyword(null,"center","center",-748944368)], null)], null),"hiccup.space"], null),new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [hiccup_repl.core.example_component,"[:h1 \"Welcome to hiccup.space\"]"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [hiccup_repl.core.example_component,"[:p \"You can \"\n     [:code \"edit\"]\n     \"the boxes on the left.\"]"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [hiccup_repl.core.example_component,"[:div\n[:p \"Try uncommenting the\"]\n[:pre \"<----[next line]-------\"]\n#_[:img {:src \"http://media.giphy.com/media/oLJ3zbbp4lX1u/giphy.gif\"}]\n]"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [hiccup_repl.core.example_component,"[:table.table.table-hover\n [:thead\n  [:tr [:td \"Name\"] [:td \"Times\"]]]\n [:tbody\n  [:tr [:td \"Bill\"] [:td \"50\"]]\n  [:tr [:td \"Jane\"] [:td \"100\"]]]]"], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"a","a",-2123407586),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"href","href",-793805698),"http://twitter.com/escherize"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"code","code",1586293142),"by @escherize on Twiter"], null)], null)], null)], null);
+return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$div,new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$div$jumbotron,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$h1,"hiccup.space"], null),new cljs.core.PersistentVector(null, 10, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$p,"Hiccup is subset of ",new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$a,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.constant$keyword$href,"http://braveclojure.com"], null),"Clojure"], null)," used for generating html (or ",new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$a,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.constant$keyword$href,"http://reagent-project.github.io/"], null),"react.js components"], null),") using ",new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$a,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.constant$keyword$href,"http://braveclojure.com"], null),"Clojure"], null)," and ",new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$a,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.constant$keyword$href,"https://www.quora.com/Why-ClojureScript"], null),"ClojureScript"], null),"."], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$p,"Here are some examples:"], null)], null),new cljs.core.PersistentVector(null, 11, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$div,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [hiccup_repl.core.example_component,cljs.core.pr_str.cljs$core$IFn$_invoke$arity$variadic(cljs.core.array_seq([new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$h1,"Welcome to hiccup.space!"], null)], 0))], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [hiccup_repl.core.example_component,"[:h2 \"You can \"\n     [:code \"edit\"]\n     \"the boxes on the left.\"]"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [hiccup_repl.core.example_component,";;      v-- This Map --v\n[:h1 {:style {:color \"#888\"}}\n  \"Attributes can be added using a map for styles.\"]"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [hiccup_repl.core.example_component,"[:h1.gray.center-text\n  \"Classes can be added using a .\"]"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [hiccup_repl.core.example_component,"[:h2#green-outline.rounded\n  \"Ids can be added using a #\"]"], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$pre,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.constant$keyword$style,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.constant$keyword$margin_DASH_left,"15px"], null)], null),"A #_ tells the reader to ignore the next expression."], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [hiccup_repl.core.example_component,"[:div\n[:h4 \"Remove (\" [:code \"#_\"] \") for a surprise :)\"\n#_[:img {:src \"http://media.giphy.com/media/oLJ3zbbp4lX1u/giphy.gif\"}]\n]]"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [hiccup_repl.core.example_component,";; Table example:\n[:table.table.table-hover\n [:thead\n  [:tr [:td \"Programming Language\"]\n       [:td \"Coolness\"]]]\n [:tbody\n  [:tr [:td \"Clojure\"]       [:td \"100\"]]\n  [:tr [:td \"ClojureScript\"] [:td \"100\"]]\n  [:tr [:td \"Brainfuck\"]     [:td \"5\"]]]]"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [hiccup_repl.core.example_component,"[:div\n  [:input.form-control\n    {:type \"text\" :placeholder \"Your name\"}]]"], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$a,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.constant$keyword$href,"http://twitter.com/escherize"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.constant$keyword$code,"by @escherize on twiter"], null)], null)], null)], null);
 });
-hiccup_repl.core.pages = new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"home","home",-74557309),new cljs.core.Var(function(){return hiccup_repl.core.home_component;},new cljs.core.Symbol("hiccup-repl.core","home-component","hiccup-repl.core/home-component",-1855402575,null),cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"ns","ns",441598760),new cljs.core.Keyword(null,"name","name",1843675177),new cljs.core.Keyword(null,"file","file",-1269645878),new cljs.core.Keyword(null,"end-column","end-column",1425389514),new cljs.core.Keyword(null,"column","column",2078222095),new cljs.core.Keyword(null,"line","line",212345235),new cljs.core.Keyword(null,"end-line","end-line",1837326455),new cljs.core.Keyword(null,"arglists","arglists",1661989754),new cljs.core.Keyword(null,"doc","doc",1913296891),new cljs.core.Keyword(null,"test","test",577538877)],[new cljs.core.Symbol(null,"hiccup-repl.core","hiccup-repl.core",1278503174,null),new cljs.core.Symbol(null,"home-component","home-component",511117826,null),"src-cljs/hiccup_repl/core.cljs",21,1,56,56,cljs.core.list(cljs.core.PersistentVector.EMPTY),null,(cljs.core.truth_(hiccup_repl.core.home_component)?hiccup_repl.core.home_component.cljs$lang$test:null)]))], null);
+hiccup_repl.core.pages = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.constant$keyword$home,new cljs.core.Var(function(){return hiccup_repl.core.home_component;},new cljs.core.Symbol("hiccup-repl.core","home-component","hiccup-repl.core/home-component",-1855402575,null),cljs.core.PersistentHashMap.fromArrays([cljs.core.constant$keyword$ns,cljs.core.constant$keyword$name,cljs.core.constant$keyword$file,cljs.core.constant$keyword$end_DASH_column,cljs.core.constant$keyword$column,cljs.core.constant$keyword$line,cljs.core.constant$keyword$end_DASH_line,cljs.core.constant$keyword$arglists,cljs.core.constant$keyword$doc,cljs.core.constant$keyword$test],[new cljs.core.Symbol(null,"hiccup-repl.core","hiccup-repl.core",1278503174,null),new cljs.core.Symbol(null,"home-component","home-component",511117826,null),"src-cljs/hiccup_repl/core.cljs",21,1,59,59,cljs.core.list(cljs.core.PersistentVector.EMPTY),null,(cljs.core.truth_(hiccup_repl.core.home_component)?hiccup_repl.core.home_component.cljs$lang$test:null)]))], null);
 hiccup_repl.core.page = (function hiccup_repl$core$page(){
-return new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [hiccup_repl.core.pages.call(null,reagent.session.get.call(null,new cljs.core.Keyword(null,"page","page",849072397)))], null);
+return new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [(function (){var G__12418 = reagent.session.get(cljs.core.constant$keyword$page);
+return (hiccup_repl.core.pages.cljs$core$IFn$_invoke$arity$1 ? hiccup_repl.core.pages.cljs$core$IFn$_invoke$arity$1(G__12418) : hiccup_repl.core.pages.call(null,G__12418));
+})()], null);
 });
-secretary.core.set_config_BANG_.call(null,new cljs.core.Keyword(null,"prefix","prefix",-265908465),"#");
-var action__27970__auto___38772 = (function (params__27971__auto__){
-if(cljs.core.map_QMARK_.call(null,params__27971__auto__)){
-var map__38770 = params__27971__auto__;
-var map__38770__$1 = ((cljs.core.seq_QMARK_.call(null,map__38770))?cljs.core.apply.call(null,cljs.core.hash_map,map__38770):map__38770);
-return reagent.session.put_BANG_.call(null,new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"home","home",-74557309));
+secretary.core.set_config_BANG_(cljs.core.constant$keyword$prefix,"#");
+var action__12254__auto___12421 = (function (params__12255__auto__){
+if(cljs.core.map_QMARK_(params__12255__auto__)){
+var map__12419 = params__12255__auto__;
+var map__12419__$1 = ((cljs.core.seq_QMARK_(map__12419))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__12419):map__12419);
+return reagent.session.put_BANG_(cljs.core.constant$keyword$page,cljs.core.constant$keyword$home);
 } else {
-if(cljs.core.vector_QMARK_.call(null,params__27971__auto__)){
-var vec__38771 = params__27971__auto__;
-return reagent.session.put_BANG_.call(null,new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"home","home",-74557309));
+if(cljs.core.vector_QMARK_(params__12255__auto__)){
+var vec__12420 = params__12255__auto__;
+return reagent.session.put_BANG_(cljs.core.constant$keyword$page,cljs.core.constant$keyword$home);
 } else {
 return null;
 }
 }
 });
-secretary.core.add_route_BANG_.call(null,"/",action__27970__auto___38772);
+secretary.core.add_route_BANG_("/",action__12254__auto___12421);
 
 hiccup_repl.core.hook_browser_navigation_BANG_ = (function hiccup_repl$core$hook_browser_navigation_BANG_(){
-var G__38774 = (new goog.History());
-goog.events.listen(G__38774,goog.history.EventType.NAVIGATE,((function (G__38774){
+var G__12426 = (new goog.History());
+var G__12427_12430 = G__12426;
+var G__12428_12431 = goog.history.EventType.NAVIGATE;
+var G__12429_12432 = ((function (G__12427_12430,G__12428_12431,G__12426){
 return (function (event){
-return secretary.core.dispatch_BANG_.call(null,event.token);
-});})(G__38774))
-);
+return secretary.core.dispatch_BANG_(event.token);
+});})(G__12427_12430,G__12428_12431,G__12426))
+;
+goog.events.listen(G__12427_12430,G__12428_12431,G__12429_12432);
 
-G__38774.setEnabled(true);
+G__12426.setEnabled(true);
 
-return G__38774;
+return G__12426;
 });
 hiccup_repl.core.mount_components = (function hiccup_repl$core$mount_components(){
-return reagent.core.render_component.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Var(function(){return hiccup_repl.core.page;},new cljs.core.Symbol("hiccup-repl.core","page","hiccup-repl.core/page",184720675,null),cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"ns","ns",441598760),new cljs.core.Keyword(null,"name","name",1843675177),new cljs.core.Keyword(null,"file","file",-1269645878),new cljs.core.Keyword(null,"end-column","end-column",1425389514),new cljs.core.Keyword(null,"column","column",2078222095),new cljs.core.Keyword(null,"line","line",212345235),new cljs.core.Keyword(null,"end-line","end-line",1837326455),new cljs.core.Keyword(null,"arglists","arglists",1661989754),new cljs.core.Keyword(null,"doc","doc",1913296891),new cljs.core.Keyword(null,"test","test",577538877)],[new cljs.core.Symbol(null,"hiccup-repl.core","hiccup-repl.core",1278503174,null),new cljs.core.Symbol(null,"page","page",-1805363372,null),"src-cljs/hiccup_repl/core.cljs",11,1,89,89,cljs.core.list(cljs.core.PersistentVector.EMPTY),null,(cljs.core.truth_(hiccup_repl.core.page)?hiccup_repl.core.page.cljs$lang$test:null)]))], null),document.getElementById("app"));
+var G__12435 = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Var(function(){return hiccup_repl.core.page;},new cljs.core.Symbol("hiccup-repl.core","page","hiccup-repl.core/page",184720675,null),cljs.core.PersistentHashMap.fromArrays([cljs.core.constant$keyword$ns,cljs.core.constant$keyword$name,cljs.core.constant$keyword$file,cljs.core.constant$keyword$end_DASH_column,cljs.core.constant$keyword$column,cljs.core.constant$keyword$line,cljs.core.constant$keyword$end_DASH_line,cljs.core.constant$keyword$arglists,cljs.core.constant$keyword$doc,cljs.core.constant$keyword$test],[new cljs.core.Symbol(null,"hiccup-repl.core","hiccup-repl.core",1278503174,null),new cljs.core.Symbol(null,"page","page",-1805363372,null),"src-cljs/hiccup_repl/core.cljs",11,1,116,116,cljs.core.list(cljs.core.PersistentVector.EMPTY),null,(cljs.core.truth_(hiccup_repl.core.page)?hiccup_repl.core.page.cljs$lang$test:null)]))], null);
+var G__12436 = document.getElementById("app");
+return (reagent.core.render_component.cljs$core$IFn$_invoke$arity$2 ? reagent.core.render_component.cljs$core$IFn$_invoke$arity$2(G__12435,G__12436) : reagent.core.render_component.call(null,G__12435,G__12436));
 });
 hiccup_repl.core.init_BANG_ = (function hiccup_repl$core$init_BANG_(){
-hiccup_repl.core.hook_browser_navigation_BANG_.call(null);
+hiccup_repl.core.hook_browser_navigation_BANG_();
 
-reagent.session.put_BANG_.call(null,new cljs.core.Keyword(null,"page","page",849072397),new cljs.core.Keyword(null,"home","home",-74557309));
+reagent.session.put_BANG_(cljs.core.constant$keyword$page,cljs.core.constant$keyword$home);
 
-return hiccup_repl.core.mount_components.call(null);
+return hiccup_repl.core.mount_components();
 });
-
-//# sourceMappingURL=core.js.map

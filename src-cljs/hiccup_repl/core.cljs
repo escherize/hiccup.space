@@ -13,17 +13,20 @@
   (:import goog.History))
 
 (defn atom-textarea [model]
-  [:div
-   [:textarea.form-control
-    {:style {:font-family "monospace"
-             :font-size "14px"
-
-             :width "100%"
-             :height "200px"
-             :margin-left "10px"}
-     :value @model
-     :on-blur #(.log js/console %)
-     :on-change #(reset! model (-> % .-target .-value))}]])
+  (let [line-num (-> @model
+                     (str/replace #"#_" "")
+                     str/split-lines
+                     count)]
+    [:div
+     [:textarea.form-control
+      {:style {:font-family "monospace"
+               :font-size "14px"
+               :width "100%"
+               :height (str (* 20 (+ 2 line-num)) "px")
+               :margin-left "10px"}
+       :value @model
+       :on-blur #(.log js/console %)
+       :on-change #(reset! model (-> % .-target .-value))}]]))
 
 (defn safe-read [s out]
   (try (let [data (reader/read-string s)]
@@ -46,8 +49,8 @@
        [:div.col-xs-6.col-md-4
         [:div.form-group [atom-textarea hic-string]]]
        [:div.col-xs-6.col-md-4
-        [:div.form-group [:div {:dangerously-set-inner-HTML
-                                {:__html @hiccup-html}}]]]
+        [:div {:dangerously-set-inner-HTML
+               {:__html @hiccup-html}}]]
        [:div.col-md-4.hidden-sm.hidden-xs
         [:div.form-group
          [:div {:style {:border "black 1px solid"
@@ -55,33 +58,56 @@
 
 (defn home-component []
   [:div
-   [:h2 {:style {:margin-top "-60px"
-                 :margin-bottom "40px"
-                 :text-align :center}}
-    "hiccup.space"]
+   [:div.jumbotron
+    [:h1 "hiccup.space"]
+    [:p "Hiccup is subset of "
+     [:a {:href "http://braveclojure.com"} "Clojure"]
+     " used for generating html (or "
+     [:a {:href "http://reagent-project.github.io/"} "react.js components"]
+     ") using "
+     [:a {:href "http://braveclojure.com"} "Clojure"]
+     " and "
+     [:a {:href "https://www.quora.com/Why-ClojureScript"} "ClojureScript"] "."]
+    [:p "Here are some examples:"]]
    [:div
     [example-component
-     "[:h1 \"Welcome to hiccup.space\"]"]
+     (pr-str [:h1 "Welcome to hiccup.space!"])]
     [example-component
-     "[:p \"You can \"
+     "[:h2 \"You can \"
      [:code \"edit\"]
      \"the boxes on the left.\"]"]
     [example-component
-     "[:div
-[:p \"Try uncommenting the\"]
-[:pre \"<----[next line]-------\"]
-#_[:img {:src \"http://media.giphy.com/media/oLJ3zbbp4lX1u/giphy.gif\"}]
-]"]
+     ";;      v-- This Map --v
+[:h1 {:style {:color \"#888\"}}
+  \"Attributes can be added using a map for styles.\"]"]
     [example-component
-     "[:table.table.table-hover
+     "[:h1.gray.center-text
+  \"Classes can be added using a .\"]"]
+    [example-component
+     "[:h2#green-outline.rounded
+  \"Ids can be added using a #\"]"]
+    [:pre {:style {:margin-left "15px"}} "A #_ tells the reader to ignore the next expression."]
+    [example-component
+     "[:div
+[:h4 \"Remove (\" [:code \"#_\"] \") for a surprise :)\"
+#_[:img {:src \"http://media.giphy.com/media/oLJ3zbbp4lX1u/giphy.gif\"}]
+]]"]
+    [example-component
+     ";; Table example:
+[:table.table.table-hover
  [:thead
-  [:tr [:td \"Name\"] [:td \"Times\"]]]
+  [:tr [:td \"Programming Language\"]
+       [:td \"Coolness\"]]]
  [:tbody
-  [:tr [:td \"Bill\"] [:td \"50\"]]
-  [:tr [:td \"Jane\"] [:td \"100\"]]]]"]
-
+  [:tr [:td \"Clojure\"]       [:td \"100\"]]
+  [:tr [:td \"ClojureScript\"] [:td \"100\"]]
+  [:tr [:td \"Brainfuck\"]     [:td \"5\"]]]]"]
+    [example-component
+     "[:div
+  [:input.form-control
+    {:type \"text\" :placeholder \"Your name\"}]]"]
     [:a {:href "http://twitter.com/escherize"}
-     [:code "by @escherize on Twiter"]]]])
+     [:code "by @escherize on twiter"]]]])
 
 (def pages
   {:home #'home-component})
