@@ -43,19 +43,15 @@
       (let [_ (safe-read @hic-string hiccup-data)
             _ (safe-parse @hiccup-data hiccup-html)])
       [:div.row
-       [:div.col-xs-4
+       [:div.col-xs-6.col-md-4
+        [:div.form-group [atom-textarea hic-string]]]
+       [:div.col-xs-6.col-md-4
+        [:div.form-group [:div {:dangerously-set-inner-HTML
+                                {:__html @hiccup-html}}]]]
+       [:div.col-md-4.hidden-sm.hidden-xs
         [:div.form-group
-
-         [atom-textarea hic-string]]]
-       [:div.col-xs-4
-        [:div.form-group
-
-         [:div {:dangerously-set-inner-HTML
-                {:__html @hiccup-html}}]]]
-       [:div.col-xs-4
-        [:div.form-group
-
-         [:div [:pre {:style {:font-family "monowidth"}} @hiccup-html]]]]])))
+         [:div {:style {:border "black 1px solid"
+                        :font-family "monowidth"}} @hiccup-html]]]])))
 
 (defn home-component []
   [:div
@@ -65,8 +61,7 @@
     "hiccup.space"]
    [:div
     [example-component
-     "[:h1 {:style {:text-align \"center\"}}
-   \"Welcome to hiccup.space\"]"]
+     "[:h1 \"Welcome to hiccup.space\"]"]
     [example-component
      "[:p \"You can \"
      [:code \"edit\"]
@@ -85,7 +80,8 @@
   [:tr [:td \"Bill\"] [:td \"50\"]]
   [:tr [:td \"Jane\"] [:td \"100\"]]]]"]
 
-    [:code "by @escherize on Twiter"]]])
+    [:a {:href "http://twitter.com/escherize"}
+     [:code "by @escherize on Twiter"]]]])
 
 (def pages
   {:home #'home-component})

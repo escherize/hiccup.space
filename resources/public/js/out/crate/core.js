@@ -24,8 +24,8 @@ return cljs.core.first.call(null,res);
 
 crate.core.html.cljs$lang$maxFixedArity = (0);
 
-crate.core.html.cljs$lang$applyTo = (function (seq27179){
-return crate.core.html.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq27179));
+crate.core.html.cljs$lang$applyTo = (function (seq33167){
+return crate.core.html.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq.call(null,seq33167));
 });
 /**
  * Alias for crate.util/escape-html

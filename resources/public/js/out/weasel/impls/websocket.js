@@ -5,8 +5,8 @@ goog.require('clojure.browser.net');
 goog.require('clojure.browser.event');
 goog.require('goog.net.WebSocket');
 
-weasel.impls.websocket.IWebSocket = (function (){var obj33363 = {};
-return obj33363;
+weasel.impls.websocket.IWebSocket = (function (){var obj34010 = {};
+return obj34010;
 })();
 
 weasel.impls.websocket.open_QMARK_ = (function weasel$impls$websocket$open_QMARK_(this$){
@@ -36,8 +36,8 @@ throw cljs.core.missing_protocol.call(null,"IWebSocket.open?",this$);
 });
 
 weasel.impls.websocket.websocket_connection = (function weasel$impls$websocket$websocket_connection(){
-var G__33365 = arguments.length;
-switch (G__33365) {
+var G__34012 = arguments.length;
+switch (G__34012) {
 case 0:
 return weasel.impls.websocket.websocket_connection.cljs$core$IFn$_invoke$arity$0();
 
@@ -103,10 +103,10 @@ goog.net.WebSocket.prototype.clojure$browser$event$IEventType$ = true;
 goog.net.WebSocket.prototype.clojure$browser$event$IEventType$event_types$arity$1 = (function (this$){
 var this$__$1 = this;
 return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.call(null,((function (this$__$1){
-return (function (p__33367){
-var vec__33368 = p__33367;
-var k = cljs.core.nth.call(null,vec__33368,(0),null);
-var v = cljs.core.nth.call(null,vec__33368,(1),null);
+return (function (p__34014){
+var vec__34015 = p__34014;
+var k = cljs.core.nth.call(null,vec__34015,(0),null);
+var v = cljs.core.nth.call(null,vec__34015,(1),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.call(null,k.toLowerCase()),v], null);
 });})(this$__$1))
 ,cljs.core.merge.call(null,cljs.core.js__GT_clj.call(null,goog.net.WebSocket.EventType))));
