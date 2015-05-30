@@ -36,8 +36,8 @@
   :uberjar-name "hiccup-repl.jar"
   :jvm-opts ["-server"]
 
-;;enable to start the nREPL server when the application launches
-;:env {:repl-port 7001}
+  ;;enable to start the nREPL server when the application launches
+                                        ;:env {:repl-port 7001}
 
   :main hiccup-repl.core
 
@@ -45,8 +45,6 @@
             [lein-environ "1.0.0"]
             [lein-ancient "0.6.5"]
             [lein-cljsbuild "1.0.6"]]
-
-
 
   :ring {:handler hiccup-repl.handler/app
          :init    hiccup-repl.handler/init
@@ -67,17 +65,15 @@
       :output-to "resources/public/js/app.js"
       :pretty-print true}}}}
 
-
   :profiles
   {:uberjar {:omit-source true
              :env {:production true}
-              :hooks [leiningen.cljsbuild]
-              :cljsbuild
-              {:jar true
-               :builds
-               {:app
-                {:source-paths ["env/prod/cljs"]
-                 :compiler {:optimizations :advanced :pretty-print false}}}}
+             :hooks [leiningen.cljsbuild]
+             :cljsbuild {:jar true
+                         :builds {:app
+                                  {:source-paths ["env/prod/cljs"]
+                                   :compiler {:optimizations :advanced
+                                              :pretty-print false}}}}
 
              :aot :all}
    :dev {:dependencies [[ring-mock "0.1.5"]
@@ -89,10 +85,10 @@
                         [com.cemerick/piggieback "0.2.1"]]
          :source-paths ["env/dev/clj"]
          :plugins [[lein-figwheel "0.3.3"]]
-          :cljsbuild
-          {:builds
-           {:app
-            {:source-paths ["env/dev/cljs"] :compiler {:source-map true}}}}
+         :cljsbuild
+         {:builds
+          {:app
+           {:source-paths ["env/dev/cljs"] :compiler {:source-map true}}}}
 
          :figwheel
          {:http-server-root "public"

@@ -1,16 +1,9 @@
 (ns hiccup-repl.core
   (:require [reagent.core :as reagent :refer [atom]]
             [reagent.session :as session]
-            [secretary.core :as secretary :include-macros true]
             [goog.events :as events]
-            [goog.history.EventType :as EventType]
-            [markdown.core :refer [md->html]]
-            [ajax.core :refer [GET POST]]
             [cljs.reader :as reader]
-            [crate.core :as crate]
-            cljsjs.jquery
-            [clojure.string :as str])
-  (:import goog.History))
+            [clojure.string :as str]))
 
 (defn atom-textarea [model]
   (let [line-num (-> @model
@@ -54,7 +47,8 @@
        [:div.col-md-4.hidden-sm.hidden-xs
         [:div.form-group
          [:div {:style {:border "black 1px solid"
-                        :font-family "monowidth"}} @hiccup-html]]]])))
+                        :font-family "monowidth"}}
+          @hiccup-html]]]])))
 
 (defn home-component []
   [:div
@@ -109,35 +103,5 @@
     [:a {:href "http://twitter.com/escherize"}
      [:code "by @escherize on twiter"]]]])
 
-(def pages
-  {:home #'home-component})
-
-(defn page []
-  [(pages (session/get :page))])
-
-;; -------------------------
-;; Routes
-(secretary/set-config! :prefix "#")
-
-(secretary/defroute "/" []
-  (session/put! :page :home))
-
-
-;; -------------------------
-;; History
-;; must be called after routes have been defined
-(defn hook-browser-navigation! []
-  (doto (History.)
-    (events/listen
-     EventType/NAVIGATE
-     (fn [event]
-       (secretary/dispatch! (.-token event))))
-    (.setEnabled true)))
-
-(defn mount-components []
-  (reagent/render-component [#'page] (.getElementById js/document "app")))
-
 (defn init! []
-  (hook-browser-navigation!)
-  (session/put! :page :home)
-  (mount-components))
+  (reagent/render-component [home-component] (.getElementById js/document "app")))
