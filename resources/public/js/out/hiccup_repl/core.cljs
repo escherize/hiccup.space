@@ -57,7 +57,7 @@
 
          [:div [:pre {:style {:font-family "monowidth"}} @hiccup-html]]]]])))
 
-(defn home-component-content []
+(defn home-component []
   [:div
    [:h2 {:style {:margin-top "-60px"
                  :margin-bottom "40px"
@@ -65,9 +65,10 @@
     "hiccup.space"]
    [:div
     [example-component
-     "[:h1 \"Welcome to hiccup.space\"]"]
+     "[:h1 {:style {:text-align \"center\"}}
+   \"Welcome to hiccup.space\"]"]
     [example-component
-"[:p \"You can \"
+     "[:p \"You can \"
      [:code \"edit\"]
      \"the boxes on the left.\"]"]
     [example-component
@@ -82,13 +83,9 @@
   [:tr [:td \"Name\"] [:td \"Times\"]]]
  [:tbody
   [:tr [:td \"Bill\"] [:td \"50\"]]
-  [:tr [:td \"Jane\"] [:td \"100\"]]]]"]]])
+  [:tr [:td \"Jane\"] [:td \"100\"]]]]"]
 
-(defn home-component []
-  (reagent/create-class {:render home-component-content
-                         :component-did-mount #(do
-                                                 (.log js/console "updated.")
-                                                 (.initHighlightingOnLoad js/hljs))}))
+    [:code "by @escherize on Twiter"]]])
 
 (def pages
   {:home #'home-component})
